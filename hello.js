@@ -2,7 +2,9 @@ var builder = require('botbuilder');
 
 
 //create the connector
-var connector = new builder.ConsoleConnector().listen();
+//var connector = new builder.ConsoleConnector().listen();
+
+var connector = new builder.ChatConnector();
 
 //create the bot
 var bot = new builder.UniversalBot(connector);
