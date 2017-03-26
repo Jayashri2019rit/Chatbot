@@ -23,7 +23,7 @@ bot.dialog('/', [
     },
     function (session, results) {
         session.userData.profile = results.response;
-        session.send('Hello %(name)s! I love %(company)s!', session.userData.profile);
+        session.send('Hello %(name)s! I think %(company)s is awesome!', session.userData.profile);
     }
 ]);
 
@@ -31,7 +31,7 @@ bot.dialog('/ensureProfile', [
     function (session, args, next) {
         session.dialogData.profile = args || {};
         if (!session.dialogData.profile.name) {
-            builder.Prompts.text(session, "What's your name?");
+            builder.Prompts.text(session, "Hello there! What's your name?");
         } else {
             next();
         }
@@ -41,7 +41,7 @@ bot.dialog('/ensureProfile', [
             session.dialogData.profile.name = results.response;
         }
         if(!session.dialogData.profile.company) {
-            builder.Prompts.text(session, "What company do you work for?");
+            builder.Prompts.text(session, "Which company do you work for?");
         } else {
             next();
         }
